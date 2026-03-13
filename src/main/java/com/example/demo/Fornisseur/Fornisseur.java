@@ -1,14 +1,28 @@
 package com.example.demo.Fornisseur;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table
 public class Fornisseur {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     private String nom;
+
     private String ville;
+
     private int telephone;
 
     public Fornisseur(String nom, String ville, int telephone) {
         this.nom = nom;
         this.ville = ville;
         this.telephone = telephone;
+    }
+
+    public Fornisseur() {
+
     }
 
     public String getNom() {

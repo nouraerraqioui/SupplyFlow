@@ -1,17 +1,20 @@
 package com.example.demo.Produit;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name= "produits")
 public class Produit {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    private long id;
 
     private String nom;
+
     private String categorie;
+
     private double prix;
+
     private int quantite;
 
     public Produit(String nom, String categorie, double prix, int quantite) {
@@ -19,6 +22,10 @@ public class Produit {
         this.categorie = categorie;
         this.prix = prix;
         this.quantite = quantite;
+    }
+
+    public Produit() {
+
     }
 
     public String getNom() {
@@ -30,7 +37,7 @@ public class Produit {
     }
 
     public String getCategorie() {
-        return categorie;
+        return this.categorie;
     }
 
     public void setCategorie(String categorie) {
